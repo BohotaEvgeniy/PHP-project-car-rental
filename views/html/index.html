@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  <title>Car rental</title>
+  <meta name="description" content="Auto,car rental">
+  <meta name="author" content="Evhen Shevcov">
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+  <!--Import Google Icon Font-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!--Import materialize.css-->
+  <link type="text/css" rel="stylesheet" href="http://auto/views/assets/lib_materialize/css/materialize.min.css"  media="screen,projection"/>
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="http://auto/views/assets/main_styles/css/main.css">
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+
+</head>
+<body>
+
+  <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+  <!--main navigation-->
+  <nav>
+    <div class="container">
+      <div class="row">
+        <div class="nav-wrapper">
+          <a href="#!" class="brand-logo"><i class="material-icons">directions_car</i>Car rental</a>
+          <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+          <ul class="right hide-on-med-and-down">
+            {% block nav %}
+
+            {% endblock %}
+
+          </ul>
+        </div>
+        <!--Mobile navigation-->
+        <ul class="sidenav" id="mobile-demo">
+         <!-- {% for item in menu_list %}
+
+          <li><a href="{{ item.link }}">{{ item.name }}</a></li>
+          {% endfor %}-->
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!--end main navigation-->
+
+  <!--main content-->
+  <main class="main" style="padding-top: 20px;">
+    <div class="container">
+      <div class="row">
+        {% block content %}
+
+        {% endblock %}
+      </div>
+    </div>
+  </main>
+  <!--end main content-->
+
+
+  <!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <!--JQuery-->
+  <script type="text/javascript" src="http://auto/views/assets/lib_Jquery/jquery.js"></script>
+  <!--JavaScript at end of body for optimized loading-->
+  <script type="text/javascript" src="http://auto/views/assets/lib_materialize/js/materialize.min.js"></script>
+  <!--my JS-->
+  <script type="text/javascript" src="http://auto/views/assets/main_styles/js/main.js"></script>
+  <script type="text/javascript" src="http://auto/views/assets/main_styles/js/main-auto.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+
+  <script>
+      // In your Javascript (external .js resource or <script> tag)
+      $(document).ready(function() {
+          $('.js-example-basic-single').select2();
+      });
+  </script>
+</body>
+</html>

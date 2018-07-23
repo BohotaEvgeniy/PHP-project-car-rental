@@ -1,0 +1,6 @@
+{% extends "index.html" %}
+{% block nav %}
+    {% for item in menu_list %}
+        <li><a href="{{ item.link }}">{{ item.name }}</a></li>
+    {% endfor %}
+{% endblock %}

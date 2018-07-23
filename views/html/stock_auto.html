@@ -1,0 +1,82 @@
+{% extends "index.html" %}
+
+{% block nav %}
+    {% for item in menu_list %}
+        <li><a href="{{ item.link }}">{{ item.name }}</a></li>
+    {% endfor %}
+{% endblock %}
+
+{% block content %}
+    {% if success is defined %}
+        <h3>{{ success }}</h3>
+    {% else %}
+    {% if empty_inputs is not empty %}
+        <div class="card-panel teal lighten-2 white-text center-align"><strong><em>{{ empty_inputs }}</em></strong></div>
+    {% endif %}
+    <div class="col s12">
+        <h3 class="center">Характеристики автомобиля</h3>
+    </div>
+    <div class="col s12">
+        <div class="col s12 m3"></div>
+        <div class="col s12 m6">
+            <form action="" method="post">
+                <div class="input-field col s12 m12">
+                    <div class="divider"></div>
+                    <div class="section">
+                        <h5>Список авто:</h5>
+                        <select class="icons" name="label_auto">
+                            <option value="" disabled selected>Марка автомобиля</option>
+                            {% for item in list_auto %}
+                                <option value="{{ item.car_brand }}" data-icon="{{ item.link_img }}">{{ item.car_brand }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <div class="divider"></div>
+                    <div class="section">
+                        <h5>Основные характеристики:</h5>
+                        <select class="icons" name="transmission_auto">
+                            <option value="" disabled selected>Трансмиссия</option>
+                            {% for item in list_transmission %}
+                                <option value="{{ item.transmission }}" data-icon="">{{ item.transmission }}</option>
+                            {% endfor %}
+                        </select>
+                        <select class="icons" name="engine_auto">
+                            <option value="" disabled selected>Объем двигателя</option>
+                            {% for item in list_force_car %}
+                                <option value="{{ item.amount }}" data-icon="">{{ item.amount }}</option>
+                            {% endfor %}
+                        </select>
+                        <select class="icons" name="class_auto">
+                            <option value="" disabled selected>Класс авто</option>
+                            {% for item in list_class_by_car %}
+                                <option value="{{ item.class }}" data-icon="">{{ item.class }} <em>- {{ item.description }}</em></option>
+                            {% endfor %}
+                        </select>
+                        <select class="icons" name="color_auto">
+                            <option value="" disabled selected>Цвет</option>
+                            {% for item in list_color_car %}
+                                <option value="{{ item.color_name }}" data-icon="{{ item.color_img }}">{{ item.color_name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="section">
+                        <h5>Видимость авто:</h5>
+                        <div class="switch">
+                            <label>
+                                Off
+                                <input type="checkbox" name="visible_auto" value="1">
+                                <span class="lever"></span>
+                                On
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <input type="submit" name="submit_choice" value="Подтвердить выбор" class="btn-large">
+            </form>
+        </div>
+        <div class="col s12 m3"></div>
+    </div>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,71 @@
+{% extends "index.html" %}
+
+{% block nav %}
+    {% for item in menu_list %}
+        <li><a href="{{ item.link }}">{{ item.name }}</a></li>
+    {% endfor %}
+{% endblock %}
+
+{% block content %}
+    <ul class="tabs tabs-fixed-width tab-demo z-depth-1">
+        <li class="tab"><a href="#test1">Авторизация</a></li>
+        <li class="tab"><a class="active" href="#test2">Регистрация</a></li>
+    </ul>
+    <div id="test1" class="col s12">
+        <p>
+            <form method="post" class="col s12">
+                <div class="row">
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">account_circle</i>
+                        <input id="icon_login" type="text" class="validate" value="{{ name }}" name="login" required minlength="2" maxlength="30">
+                        <label for="icon_login">Login</label>
+                    </div>
+                    <!--<div class="input-field col s6">-->
+                        <!--<i class="material-icons prefix">security</i>-->
+                        <!--<input id="icon_security" type="password" class="validate" value="{{ password }}" name="password" required minlength="6" maxlength="40">-->
+                        <!--<label for="icon_security">Password</label>-->
+                    <!--</div>-->
+                    <div class="input-field col s6">
+                        <button class="btn waves-effect waves-light" type="submit" name="authorization">Авторизоваться
+                            <i class="material-icons right">send</i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </p>
+    </div>
+{% if respond != true %}
+    <div id="test2" class="col s12">
+        <p>
+            <form method="post" class="col s12">
+                <div class="row">
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">account_circle</i>
+                        <input id="icon_login" type="text" class="validate" value="{{ name }}" name="login" required minlength="2" maxlength="30">
+                        <label for="icon_login">Login</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">security</i>
+                        <input id="icon_security" type="password" class="validate" value="{{ password }}" name="password" required minlength="6" maxlength="40">
+                        <label for="icon_security">Password</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">email</i>
+                        <input id="icon_email" type="email" class="validate" value="{{ email }}" name="email" required minlength="5" maxlength="40">
+                        <label for="icon_email">Password</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <button class="btn waves-effect waves-light" type="submit" name="registration">Зарегистрироваться
+                            <i class="material-icons right">send</i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </p>
+    </div>
+{% else %}
+    <div class="col s12">
+        <h1>Вы зарегистрировались удачною</h1>
+    </div>
+{% endif %}
+{% endblock %}
